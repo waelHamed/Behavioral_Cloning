@@ -44,7 +44,7 @@ I'm splitting my dataset into train/validation set with a factor of 0.8 (which m
 --
 The data which is loaded directly from my drive is feed into a Keras fit_generator. My generator picks a random batch of my dataset, picks one of the images (left, center, right) and might flip the image. Then the generator yields the batch and feeds it to the network. This continues until the whole dataset is used.
 
-![Network]
+![Network] (https://github.com/waelHamed/Behavioral_Cloning/blob/master/model-visualization.png)
 
 
 The network consists of five convolutional layers, followed by three fully connected layers. I have added Dropout Layers and SpatialDropout Layers to prevent overfitting.
