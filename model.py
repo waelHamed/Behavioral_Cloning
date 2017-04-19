@@ -53,7 +53,7 @@ with open('./data/driving_log.csv') as csvfile:
 # using generators means we have to manually split train/validation sets and shuffle
 # the data, since we can no longer use Keras's validation_split and shuffle methods
 from sklearn.model_selection import train_test_split
-train_samples, validation_samples = train_test_split(samples, test_size=0.2)
+train_samples, validation_samples = train_test_split(samples, test_size=0.8)
 
 train_generator = generator(train_samples, batch_size=64)
 validation_generator = generator(validation_samples, batch_size=64)
@@ -111,6 +111,7 @@ model.add(Dense(100))
 model.add(Dense(50))
 model.add(Dense(10))
 model.add(Dense(1)) #single node representing steering angle, unlike classification, which has # of final nodes equal to number of classes
+model.summary()
 
 model.compile(loss='mse', optimizer='adam')
 model.fit_generator(train_generator, samples_per_epoch= len(train_samples), validation_data=validation_generator, nb_val_samples=len(validation_samples), nb_epoch=3)
